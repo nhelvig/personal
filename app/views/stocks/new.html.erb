@@ -1,0 +1,37 @@
+<h1>Add a new purchase of a stock</h1>
+
+<%= form_for @stock do |f| %>
+    <% if @stock.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@article.errors.count, "error") %> prohibited
+            this stock purchase from being saved:
+          </h2>
+          <ul>
+            <% @article.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <p>
+      <%= f.label :symbol %>
+      <%= f.text_field :symbol %>
+    </p>
+
+    <p>
+      <%= f.label :quantity %>
+      <%= f.text_field :quantity %>
+    </p>
+
+    <p>
+      <%= f.label :price %>
+      <%= f.text_field :price %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+
+<% end %>

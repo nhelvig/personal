@@ -1,9 +1,10 @@
 <div id="header">
   <h2 id="welcome">Welcome</h2>
 
-  <div class="top-nav-option">Home</div>
-  <div class="top-nav-option">About Me</div>
+  <div class="top-nav-option"><%= link_to 'Home', root_path %></div>
+  <div class="top-nav-option"><%= link_to 'Blog', controller: 'articles' %></div>
   <div class="top-nav-option">Map</div>
+  <div class="top-nav-option"><%= link_to 'Stocks', controller: 'stocks' %></div>
   <div class="top-nav-option">Contact</div>
 
 </div>
