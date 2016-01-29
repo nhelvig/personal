@@ -20,4 +20,7 @@
 .idea/
 *.iml
 *.ipr
-*.iws  
+*.iws
+
+#Ignore pics
+app/assets/stylesheets/images/
