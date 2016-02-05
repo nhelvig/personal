@@ -1,0 +1,25 @@
+<p>
+  <strong>Ticker Symbol:</strong>
+  <%= @transaction.symbol %>
+</p>
+
+<p>
+  <strong>Purchase price:</strong>
+  <%= @transaction.price %>
+</p>
+
+<p>
+  <strong>Current price:</strong>
+  <%= @stock.get_stock_price %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= Transaction.quantity(@transaction.symbol) %>
+</p>
+
+<%= link_to "Back", transactions_path %>
+<%= link_to 'Edit', edit_transaction_path(@transaction) %>
+<%= link_to 'Destroy', transaction_path(@transaction),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
