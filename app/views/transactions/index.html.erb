@@ -35,19 +35,19 @@
       <th>Current Price</th>
       <th>Value</th>
     </tr>
-    <% @investment.each do |investment| %>
+    <% @investments.each do |investment| %>
         <tr>
-          <td><%= transaction.symbol %></td>
-          <td><%= transaction.quantity %></td>
-          <td><%= transaction.price %></td>
-          <td><%= link_to 'Show', transaction_path(transaction) %></td>
-          <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
-          <td><%= link_to 'Destroy', transaction_path(transaction),
+          <td><%= investment.symbol %></td>
+          <td><%= investment.quantity %></td>
+          <td><%= investment.price %></td>
+          <!--<td><%= link_to 'Show', investment_path(investment) %></td>-->
+          <!--<td><%= link_to 'Edit', edit_investment_path(investment) %></td>-->
+          <td><%= link_to 'Destroy', investment_path(investment),
                           method: :delete,
                           data: { confirm: 'Are you sure?' } %></td>
         </tr>
     <% end %>
-    <%= link_to 'New transaction', new_transaction_path %>
+    <!--<%= link_to 'New transaction', new_transaction_path %>-->
   </table>
 </body>
 </html>

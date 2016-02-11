@@ -26,8 +26,14 @@ input {
     color: black;
 }
 
+/*#header, #main-name {*/
+    /*!*opacity: 0.7;*!*/
+    /*!*background: #C7CDD9;*!*/
+/*!*}*!*/
+
 #header {
     height: 75px;
+    opacity: .8;
 }
 
 .top-nav-option {

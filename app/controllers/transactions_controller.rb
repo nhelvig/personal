@@ -2,12 +2,19 @@ class TransactionsController < ApplicationController
 
   def index
     @transactions = Transaction.all
-    @investments = Transaction.allHoldings
+    @investments = Investment.all
   end
 
   def show
     @transaction = Transaction.find(params[:id])
-    @stock = Stock.find(@transaction.symbol)
+    begin
+      @investment = Investment.find(@transaction.symbol)
+      @investment.addTransaction(@transaction)
+    rescue ActiveRecord::RecordNotFound
+      Investment.new(@transaction)
+      @investment = Investment.find(@transaction.symbol)
+      @investment.save
+    end
   end
 
   def new
@@ -18,9 +25,15 @@ class TransactionsController < ApplicationController
   def create
     @transaction = Transaction.new(transaction_params)
     if @transaction.save
-      @stock = Stock.new({:symbol => @transaction.symbol})
-      @stock.save
-      Transaction.recordTransaction(@transaction)
+      begin
+        @investment = Investment.find(@transaction.symbol)
+        @investment.addTransaction(@transaction)
+        @investment.save
+      rescue ActiveRecord::RecordNotFound
+        Investment.new(@transaction)
+        @investment = Investment.find(@transaction.symbol)
+        @investment.save
+      end
       redirect_to @transaction
     else
       render 'new'

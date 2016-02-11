@@ -4,12 +4,7 @@ class Transaction < ActiveRecord::Base
   @@transactions = Hash.new
 
   def self.recordTransaction(transaction)
-    if(@@transactions.has_key?(transaction.symbol))
-      @@transactions[transaction.symbol].push(transaction)
-    else
-      array = []
-      @@transactions[transaction.symbol] = array << transaction
-    end
+
   end
 
   def self.quantity(symbol)
