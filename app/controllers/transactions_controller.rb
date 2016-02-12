@@ -9,10 +9,8 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.find(params[:id])
     begin
       @investment = Investment.find(@transaction.symbol)
-      @investment.addTransaction(@transaction)
     rescue ActiveRecord::RecordNotFound
-      Investment.new(@transaction)
-      @investment = Investment.find(@transaction.symbol)
+      @investment = Investment.new(@transaction)
       @investment.save
     end
   end
@@ -30,8 +28,8 @@ class TransactionsController < ApplicationController
         @investment.addTransaction(@transaction)
         @investment.save
       rescue ActiveRecord::RecordNotFound
-        Investment.new(@transaction)
-        @investment = Investment.find(@transaction.symbol)
+        @investment = Investment.build(@transaction)
+        print @investment
         @investment.save
       end
       redirect_to @transaction

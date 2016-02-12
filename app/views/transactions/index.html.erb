@@ -39,15 +39,11 @@
         <tr>
           <td><%= investment.symbol %></td>
           <td><%= investment.quantity %></td>
-          <td><%= investment.price %></td>
-          <!--<td><%= link_to 'Show', investment_path(investment) %></td>-->
-          <!--<td><%= link_to 'Edit', edit_investment_path(investment) %></td>-->
-          <td><%= link_to 'Destroy', investment_path(investment),
-                          method: :delete,
-                          data: { confirm: 'Are you sure?' } %></td>
+          <td><%= investment.avg_cost %></td>
+          <td><%= investment.current_price %></td>
+          <td><%= investment.total_value %></td>
         </tr>
     <% end %>
-    <!--<%= link_to 'New transaction', new_transaction_path %>-->
   </table>
 </body>
 </html>
