@@ -23,16 +23,18 @@ class TransactionsController < ApplicationController
   def create
     @transaction = Transaction.new(transaction_params)
     if @transaction.save
-      begin
+
+      if Investment.contains(@transaction.symbol)
         @investment = Investment.find(@transaction.symbol)
         @investment.addTransaction(@transaction)
-        @investment.save
-      rescue ActiveRecord::RecordNotFound
+      else
         @investment = Investment.build(@transaction)
-        print @investment
-        @investment.save
+        if @investment.save
+          print "good"
+          # Investment.symbols.add(@transaction.symbol)
+        end
       end
-      redirect_to @transaction
+      redirect_to transactions_path
     else
       render 'new'
     end

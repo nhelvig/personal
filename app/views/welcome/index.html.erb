@@ -1,16 +1,68 @@
-<div id="home-body">
-  <div id="header">
-    <div id="main-name">Nicolas Helvig</div>
+<div id="header" xmlns="http://www.w3.org/1999/html">
+  <nav id="menu-options">
+    <ul>
+      <li class="top-nav-option"><%= link_to 'Home', root_path %></li>
+      <li class="top-nav-option"><%= link_to 'Blog', controller: 'articles' %></li>
+      <li class="top-nav-option">Map</li>
+      <li class="top-nav-option"><%= link_to 'Stocks', controller: 'transactions' %></li>
+      <li class="top-nav-option"><a href="#home-slide">Home</a></li>
+      <li class="top-nav-option"><a href="#about-me-slide">About Me</a></li>
+      <li class="top-nav-option"><a href="#work-slide">Work</a></li>
+      <li class="top-nav-option"><a href="#contact-slide">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+<div id="home-slide">
+  <div id="welcome-info">
+    <div class="intro-info" id="main-name">Hi, I'm Nick.</div>
+    <div class="intro-info">I was born in the year of the rooster.</div>
   </div>
-  <div id="header">
 
-    <div class="top-nav-option"><%= link_to 'Home', root_path %></div>
-    <div class="top-nav-option"><%= link_to 'Blog', controller: 'articles' %></div>
-    <div class="top-nav-option">Map</div>
-    <div class="top-nav-option"><%= link_to 'Stocks', controller: 'transactions' %></div>
-    <div class="top-nav-option">Contact</div>
-
+  <div id="learn-more">
+    <a href="#about-me-slide">
+    <div id="main-question">Want to know more?</div>
+    <%= image_tag 'down-arrows.png'%>
+    </a>
   </div>
+</div>
+
+<div id="about-me-slide">
+  <div class="content">
+    <!--<div id="mapdiv" style="width: 300px; height: 250px;"></div>-->
+    <div id="about-me-header">This is me and my name appearing in nature.</div>
+    <div id="picture-show">
+      <img id="pic-left-arrow" src="assets/left-arrow.jpg" onClick="forward();return false"/>
+        <script>
+          if (linkornot==1)
+            document.write('<a href="javascript:transport()">')
+          document.write('<img src="'+photos[0]+'" id="photoslider" name="photoslider" style="filter:revealTrans(duration=2,transition=23)" border=0>')
+          if (linkornot==1)
+            document.write('</a>')
+        </script>
+      <img id="pic-right-arrow" src="assets/right-arrow.jpg" onClick="backward();return false"/>
+    </div>
+
+    <!--<img id="travel-map" src="http://www.travbuddy.com/maps/6912376"></img>-->
+    <div id="about-me-content">I'm just a person who likes to learn about the world around me. I am often on the road because I believe that <a href="https://youtu.be/-LHPRbEAxy4?t=1m15s">"the more you see the less you know"</a>. I have realized how fortunate I am to lead a life with access to so many opportunites. I hope that during my lifetime I am able to open such doors for others. I like to travel and take <a href="/pics">pictures</a>.</div>
+  </div>
+</div>
+
+<div id="work-slide">
+  <div class="content">
+    <div id="work-content">I work at <a href="http://www.thoughtworks.com" class="thoughtworks-link" %>ThoughtWorks</a> as a <span title="mercenary?">software development consultant</span>.</div>
+  </div>
+</div>
+
+<div id="contact-slide">
+  <div class="content">
+    <div id="contact-content">
+      Need to contact me? My email is nick.helvig@gmail.com
+    </div>
+  </div>
+</div>
+
+<div id="footer">
+
 </div>
 
 

@@ -2,19 +2,140 @@
 // They will automatically be included in application.css.erb.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
-  background-repeat: no-repeat;
-  background-image:url("IMG_1472.jpg");
+  background-color: #EFEFEF;
+    /*background-size: cover;*/
+}
+#home-slide {
+  background: image-url("rooster.jpg") 50% 0 no-repeat;
+  height: 600px;
+  padding: 200px 0 100px 0;
   background-size: cover;
 }
 
-#home-body {
-  text-align: center;
-  margin-top: 25px;
-  height: 100%;
+#work-slide, #about-me-slide {
+  background: #8CCED5;
+  height: 800px;
 }
 
-#main-name {
-  font-family: Candara,Calibri,Segoe,"Segoe UI",Optima,Arial,sans-serif;
-  font-size: 72pt;
-  opacity: .95;
+#contact-slide {
+  background: #8CCED5;
+  height: 800px;
+}
+
+.content {
+  width: 80%;
+  background: #FFF;
+  margin: 0 10%;
+  padding: 200px 0;
+  height: 400px;
+}
+
+.top-nav-option {
+  color: white;
+}
+
+#header {
+  color: #000;
+  text-align: center;
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  background: darkgray;
+  opacity: 0.7;
+
+}
+
+.top-nav-option {
+  display: inline-block;
+  padding: 25px;
+  padding-top: 5px;
+}
+
+.intro-info {
+  font-family: 'Poiret One', cursive;
+  color: white;
+  letter-spacing: 2px;
+  font-size: 3em;
+  font-weight: normal;
+}
+
+#welcome-info {
+  padding-top: 115px
+}
+
+#down-arrows:before {
+  content: url("down-arrows.png");
+}
+
+#learn-more {
+  height: 180px;
+}
+
+#learn-more > a > img {
+  margin-left: 1100px;
+  text-align: right;
+}
+
+#main-question {
+  margin: 18% 3% 0 5%;
+  font-size: 1.7em;
+  color: white;
+  font-family: 'Poiret One', cursive;
+  text-align: right;
+}
+
+#work-content {
+  font-size: 2em;
+}
+
+.thoughtworks-link, .thoughtworks-link:visited {
+  color: #8CCED5;
+}
+
+.thoughtworks-link:hover {
+  color: #EF5BA1;
+}
+
+#travel-map {
+  border: lightgray 14px solid;
+  float: left;
+  margin-left: 10%;
+}
+
+#photoslider {
+  width: 500px;
+  height: 400px;
+  padding-top: 50px;
+}
+
+#picture-show {
+  position: relative;
+  margin-left: 17%;
+}
+
+#about-me-header {
+  margin-top: -120px;
+  font-size: 2em;
+  font-family: 'Poiret One', cursive;
+}
+
+#about-me-content {
+  padding: 20px 50px;
+  font-size: 1.5em;
+}
+
+#pic-left-arrow, #pic-right-arrow {
+  height: 50px !important;
+  width: 50px !important;
+  text-align: left;
+  padding-top: 200px;
+}
+
+#pic-left-arrow {
+  float: left;
+}
+
+#pic-right-arrow {
+  float: right;
+  padding-right: 20%;
 }
