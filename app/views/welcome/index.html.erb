@@ -1,21 +1,19 @@
 <div id="header" xmlns="http://www.w3.org/1999/html">
   <nav id="menu-options">
     <ul>
-      <li class="top-nav-option"><%= link_to 'Home', root_path %></li>
-      <li class="top-nav-option"><%= link_to 'Blog', controller: 'articles' %></li>
-      <li class="top-nav-option">Map</li>
-      <li class="top-nav-option"><%= link_to 'Stocks', controller: 'transactions' %></li>
       <li class="top-nav-option"><a href="#home-slide">Home</a></li>
       <li class="top-nav-option"><a href="#about-me-slide">About Me</a></li>
       <li class="top-nav-option"><a href="#work-slide">Work</a></li>
       <li class="top-nav-option"><a href="#contact-slide">Contact</a></li>
+      <li class="top-nav-option"><%= link_to 'Blog', controller: 'articles' %></li>
+      <li class="top-nav-option"><%= link_to 'Stocks', controller: 'transactions' %></li>
     </ul>
   </nav>
 </div>
 <div id="home-slide">
   <div id="welcome-info">
     <div class="intro-info" id="main-name">Hi, I'm Nick.</div>
-    <div class="intro-info">I was born in the year of the rooster.</div>
+    <div class="intro-info">I was born in the <a href="http://www.chinahighlights.com/travelguide/chinese-zodiac/rooster.htm">year of the rooster</a>.</div>
   </div>
 
   <div id="learn-more">
@@ -29,7 +27,7 @@
 <div id="about-me-slide">
   <div class="content">
     <!--<div id="mapdiv" style="width: 300px; height: 250px;"></div>-->
-    <div id="about-me-header">This is me and my name appearing in nature.</div>
+    <div id="about-me-header">This is me and my <a href="http://www.sheknows.com/baby-names/name/nicolas">name</a> appearing in nature.</div>
     <div id="picture-show">
       <img id="pic-left-arrow" src="assets/left-arrow.jpg" onClick="forward();return false"/>
         <script>
