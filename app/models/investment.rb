@@ -36,12 +36,11 @@ class Investment < ActiveRecord::Base
   end
 
   def get_stock_price
-    10.00
+    StockQuote::Stock.quote(symbol).ask
   end
 
-  def self.contains(symbol)
-    # symbol in @@symbols
-    false
+  def value
+    StockQuote::Stock.quote(symbol).ask
   end
 
   def self.totalInvestmentValue
