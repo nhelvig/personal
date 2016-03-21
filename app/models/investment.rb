@@ -40,7 +40,10 @@ class Investment < ActiveRecord::Base
   end
 
   def value
-    StockQuote::Stock.quote(symbol).ask
+    if StockQuote::Stock.quote(symbol).ask.class == Float
+      StockQuote::Stock.quote(symbol).ask * quantity
+    end
+
   end
 
   def self.totalInvestmentValue
