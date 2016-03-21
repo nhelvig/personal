@@ -1,0 +1,41 @@
+body {
+  background: #91a7a8;
+}
+
+h1 {
+  padding-top: 20px;
+}
+
+.review-section {
+  height: 400px;
+  background: white;
+  width: 80%;
+  margin: 2% 10%;
+  border-radius: 25px;
+}
+
+.review-section-title {
+  font-size: 2em;
+  font-weight: 700;
+  padding-left: 2%;
+  padding-top: 2%;
+}
+
+.review-section-content {
+  padding-left: 20px;
+
+}
+
+.sub-section-title {
+  font-weight: 700;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.sub-section-title, .sub-section-content {
+  text-align: left;
+}
+
+.sub-section-content {
+  padding-left: 10px;
+}
