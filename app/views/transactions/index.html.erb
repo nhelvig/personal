@@ -16,7 +16,7 @@
         <tr>
           <td><%= transaction.symbol %></td>
           <td><%= transaction.quantity %></td>
-          <td><%= transaction.price %></td>
+          <td>$<%= transaction.price %></td>
           <td><%= link_to 'Show', transaction_path(transaction) %></td>
           <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
           <td><%= link_to 'Destroy', transaction_path(transaction),
@@ -38,10 +38,10 @@
           <% @investments.each do |investment| %>
         <tr>
           <td><%= investment.symbol %></td>
-          <td><%= investment.avg_cost %></td>
+          <td>$<%= investment.avg_cost %></td>
           <td><%= investment.quantity %></td>
-          <td><%= investment.get_stock_price %></td>
-          <td><%= investment.value %></td>
+          <td>$<%= investment.get_stock_price %></td>
+          <td>$<%= investment.value %></td>
         </tr>
     <% end %>
   </table>
