@@ -24,16 +24,16 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new(transaction_params)
     if @transaction.save
 
-      # if Investment.contains(@transaction.symbol)
-      #   @investment = Investment.find(@transaction.symbol)
-      #   @investment.addTransaction(@transaction)
-      # else
+      if Investment.exists?(@transaction.symbol)
+        @investment = Investment.find(@transaction.symbol)
+        @investment.addTransaction(@transaction)
+      else
         @investment = Investment.build(@transaction)
         if @investment.save
           print "good"
           # Investment.symbols.add(@transaction.symbol)
         end
-      # end
+      end
       redirect_to transactions_path
     else
       render 'new'
