@@ -5,16 +5,18 @@
     <title>Transactions</title>
 </head>
 <body>
-  <div id="newAction"><%= link_to 'New transaction', new_transaction_path %></div>
+  <div id="new-action"><%= link_to 'New transaction', new_transaction_path %></div>
   <table class="transaction-table">
     <tr>
       <th>Symbol</th>
+      <th>Action</th>
       <th>Quantity</th>
-      <th>Price Bought</th>
+      <th>Price</th>
     </tr>
     <% @transactions.each do |transaction| %>
         <tr>
           <td><%= transaction.symbol %></td>
+          <td><%= transaction.action %></td>
           <td><%= transaction.quantity %></td>
           <td>$<%= transaction.price %></td>
           <td><%= link_to 'Show', transaction_path(transaction) %></td>
@@ -45,5 +47,8 @@
         </tr>
     <% end %>
   </table>
+  <div>Total invested: <%= Investment.totalInvested %></div>
+  <div>Total value: <%= Investment.totalValue %></div>
+  <div>Available cash: <%= Investment.availableCash %></div>
 </body>
 </html>

@@ -6,8 +6,19 @@
   width: 675px;
   margin: 100px;
 }
-#newAction {
+
+#new-action {
   margin-top: 50px;
   font-size: 30px;
+}
 
+#transaction-form-outer {
+  margin: 20% 40%;
+  border: 2px solid red;
+  background-color: lightblue;
+  border-radius: 15px;
+}
+
+#transaction-form-inner {
+  text-align: left;
 }

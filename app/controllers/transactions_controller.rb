@@ -1,6 +1,7 @@
 class TransactionsController < ApplicationController
 
   def index
+    print "Transactions Controller - index"
     @transactions = Transaction.all
     @investments = Investment.all
   end

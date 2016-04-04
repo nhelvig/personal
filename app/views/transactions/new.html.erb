@@ -1,28 +1,29 @@
 <h1>Add a new transaction of a stock</h1>
+<div id="transaction-form-outer">
+    <div id="transaction-form-inner">
+        <%= form_for :transaction, url: transactions_path do |f| %>
+            <p>
+              <%= f.label :symbol %>
+              <%= f.text_field :symbol %>
+            </p>
 
-<%= form_for :transaction, url: transactions_path do |f| %>
+            <p>
+              <%= f.label :quantity %>
+              <%= f.text_field :quantity %>
+            </p>
 
-    <p>
-      <%= f.label :symbol %>
-      <%= f.text_field :symbol %>
-    </p>
+            <p>
+              <%= f.label :price %>
+              <%= f.text_field :price %>
+            </p>
 
-    <p>
-      <%= f.label :quantity %>
-      <%= f.text_field :quantity %>
-    </p>
+            <p>
+              <%= f.select :action, [['Buy','buy'],['Sell','sell']] %>
+            </p>
 
-    <p>
-      <%= f.label :price %>
-      <%= f.text_field :price %>
-    </p>
-
-    <p>
-      <%= f.select :action, [['Buy','buy'],['Sell','sell']] %>
-    </p>
-
-    <p>
-      <%= f.submit %>
-    </p>
-
-<% end %>
+            <p>
+              <%= f.submit %>
+            </p>
+        <% end %>
+    </div>
+</div>
