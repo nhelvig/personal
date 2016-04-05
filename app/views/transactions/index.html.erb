@@ -12,6 +12,7 @@
       <th>Action</th>
       <th>Quantity</th>
       <th>Price</th>
+      <th>Date</th>
     </tr>
     <% @transactions.each do |transaction| %>
         <tr>
@@ -19,6 +20,7 @@
           <td><%= transaction.action %></td>
           <td><%= transaction.quantity %></td>
           <td>$<%= transaction.price %></td>
+          <td><%= transaction.date %></td>
           <td><%= link_to 'Show', transaction_path(transaction) %></td>
           <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
           <td><%= link_to 'Destroy', transaction_path(transaction),

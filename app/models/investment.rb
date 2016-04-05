@@ -25,7 +25,7 @@ class Investment < ActiveRecord::Base
     investment_value = transaction.quantity * transaction.price
     if transaction.action == 'buy'
       total_quantity = quantity + transaction.quantity
-      new_avg_cost = avg_cost * (quantity / total_quantity) + transaction.price * (transaction.quantity / total_quantity)
+      new_avg_cost = (avg_cost * (quantity / total_quantity) + transaction.price * (transaction.quantity / total_quantity)).round(2)
       update_attribute(:avg_cost, new_avg_cost)
       update_attribute(:quantity, total_quantity)
       update_attribute(:total_value, investment_value + total_value)
@@ -61,8 +61,11 @@ class Investment < ActiveRecord::Base
     print "available_cash: \n"
     print @@available_cash
     print "\n"
+    print "total_invested: \n"
+    print @@total_invested
+    print "--------------\n"
     if investment_value - @@available_cash > 0
-      @@total_invested += investment_value - @@available_cash
+      @@total_invested = @@total_invested + investment_value - @@available_cash
     end
     print "total_invested: \n"
     print @@total_invested
@@ -99,9 +102,12 @@ class Investment < ActiveRecord::Base
 
   def self.totalValue
     sum = 0
-    # for Investment.all do investment:
-    #    sum += investment.total_value
-    # end
+
+    for investment in Investment.all
+       sum += investment.value
+    end
+    print "SUM: \n"
+    print sum
     return sum + @@available_cash
   end
 

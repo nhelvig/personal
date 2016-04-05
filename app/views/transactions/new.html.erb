@@ -22,6 +22,10 @@
             </p>
 
             <p>
+              <%= date_select("transaction", "date", order: [:month, :day, :year]) %>
+            </p>
+
+            <p>
               <%= f.submit %>
             </p>
         <% end %>

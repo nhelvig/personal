@@ -60,7 +60,7 @@ class TransactionsController < ApplicationController
 
   private
   def transaction_params
-    params.require(:transaction).permit(:symbol, :quantity, :price, :action, :commission)
+    params.require(:transaction).permit(:symbol, :quantity, :price, :action, :commission, :date)
   end
 
 end
