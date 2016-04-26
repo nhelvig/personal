@@ -4,8 +4,16 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+ge:
+      symbol: GE
+      quantity: 10
+      total_value: 100
+      avg_cost: 10
+      current_price: 10
+
+nok:
+      symbol: NOK
+      quantity: 5
+      total_value: 30
+      avg_cost: 5
+      current_price: 6

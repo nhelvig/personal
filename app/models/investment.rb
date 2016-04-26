@@ -49,6 +49,9 @@ class Investment < ActiveRecord::Base
     update_attribute(:quantity, total_quantity)
     update_attribute(:total_value, total_value - investment_value)
     @@available_cash += investment_value
+    if quantity == 0
+      self.delete
+    end
   end
 
   def updateAvailableCash(investment_value)
@@ -76,7 +79,11 @@ class Investment < ActiveRecord::Base
   def value
     begin
       if StockQuote::Stock.quote(symbol).ask.class == Float
-        StockQuote::Stock.quote(symbol).ask * quantity
+        value = StockQuote::Stock.quote(symbol).ask * quantity
+        if value == nil
+          value = "N/A"
+        end
+        value
       end
     rescue
       #not connected to internet
@@ -95,7 +102,10 @@ class Investment < ActiveRecord::Base
   def self.totalValue
     sum = 0
     for investment in Investment.all
-       sum += investment.value
+      if investment.value != nil
+        sum += investment.value
+      end
+
     end
     return sum + @@available_cash
   end
