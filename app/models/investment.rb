@@ -49,6 +49,9 @@ class Investment < ActiveRecord::Base
     update_attribute(:quantity, total_quantity)
     update_attribute(:total_value, total_value - investment_value)
     @@available_cash += investment_value
+    if quantity < 0
+      raise Exception.new("How can the quantity be less than 0?? Cmon...")
+    end
     if quantity == 0
       self.delete
     end
