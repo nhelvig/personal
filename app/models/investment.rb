@@ -83,7 +83,7 @@ class Investment < ActiveRecord::Base
         if value == nil
           value = "N/A"
         end
-        value
+        value.round(2)
       end
     rescue
       #not connected to internet
@@ -93,7 +93,7 @@ class Investment < ActiveRecord::Base
 
   def self.totalInvested
     begin
-      @@total_invested
+      @@total_invested.round(2)
     rescue
       0
     end
@@ -107,11 +107,18 @@ class Investment < ActiveRecord::Base
       end
 
     end
-    return sum + @@available_cash
+    return (sum + @@available_cash).round(2)
+  end
+
+  def self.totalValuePercentage
+    if self.totalInvested > 0
+      return (((self.totalValue/self.totalInvested) - 1) * 100).round(2)
+    end
+    return 0
   end
 
   def self.availableCash
-    @@available_cash
+    @@available_cash.round(2)
   end
 
 end

@@ -58,6 +58,11 @@ class TransactionsController < ApplicationController
     redirect_to transactions_path
   end
 
+  def import
+    Transaction.import(params[:file])
+    redirect_to transactions_url, notice: "Transactions imported."
+  end
+
   private
   def transaction_params
     params.require(:transaction).permit(:symbol, :quantity, :price, :action, :commission, :date)

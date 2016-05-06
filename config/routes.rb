@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   resources :articles
   resources :transactions
 
+  resources :transactions do
+    collection { post :import }
+  end
 
   # Example resource route with options:
   #   resources :products do

@@ -51,6 +51,14 @@
   </table>
   <div>Total invested: <%= Investment.totalInvested %></div>
   <div>Total value: <%= Investment.totalValue %></div>
+  <div>Percent change: <%= Investment.totalValuePercentage %>%</div>
   <div>Available cash: <%= Investment.availableCash %></div>
+
+  <h3>Import a CSV File</h3>
+  <%= form_tag import_transactions_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import CSV" %>
+<% end %>
+</div>
 </body>
 </html>
