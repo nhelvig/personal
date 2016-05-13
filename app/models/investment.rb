@@ -7,9 +7,11 @@ class Investment < ActiveRecord::Base
   def self.build(transaction)
     print "New investment \n"
     if transaction.action == 'buy'
+      print "Buying " + transaction.symbol + " with quantity: " + transaction.quantity.truncate(2).to_s('F') + " at price: $" + transaction.price.truncate(2).to_s('F') + "\n"
       total_value = transaction.price * transaction.quantity
       @@total_invested += total_value
     else
+      print "Trying to sell " + transaction.symbol + " with quantity: " + transaction.quantity.truncate(2).to_s('F') + " at price: $" + transaction.price.truncate(2).to_s('F') + "\n"
       raise 'Cannot sell something that is not owned'
     end
     investment = Investment.new
@@ -69,7 +71,7 @@ class Investment < ActiveRecord::Base
 
   def get_stock_price
     begin
-      StockQuote::Stock.quote(symbol).ask
+      StockQuote::Stock.quote(symbol).last_trade_price_only
     rescue
       #not connected to internet
       10
@@ -78,8 +80,12 @@ class Investment < ActiveRecord::Base
 
   def value
     begin
-      if StockQuote::Stock.quote(symbol).ask.class == Float
-        value = StockQuote::Stock.quote(symbol).ask * quantity
+      currentPrice = StockQuote::Stock.quote(symbol).last_trade_price_only
+      if currentPrice.class == Float
+        print "Getting current price for " + symbol + "\n"
+        value = currentPrice * quantity
+        print "Price is: " + currentPrice.to_s + "\n"
+        print "Value is: " + value.to_s + "\n"
         if value == nil
           value = "N/A"
         end
@@ -103,10 +109,12 @@ class Investment < ActiveRecord::Base
     sum = 0
     for investment in Investment.all
       if investment.value != nil
+        print "Symbol: " + investment.symbol + " value: " + investment.value.to_s + "\n"
         sum += investment.value
       end
 
     end
+    print "Available cash: " + @@available_cash.to_s + "\n"
     return (sum + @@available_cash).round(2)
   end
 
