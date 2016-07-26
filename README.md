@@ -9,9 +9,6 @@ There are a few main features as of now.
 
 >The [homepage] features parallax scrolling and a picture slideshow
 
-### Review ###
-
->The [review page] is to be updated for each biannual review, or a new page will be made for each additional review. This has not been decided as of yet.
 
 ### Transactions ###
 
@@ -23,6 +20,11 @@ There are a few main features as of now.
 ### Pictures ###
 
 > The [pictures page] is a spot to show pictures I have taken from the different places I have been.
+
+### Review ###
+
+>The [review page] is to be updated for each biannual review, or a new page will be made for each additional review. This has not been decided as of yet.
+
 
 >Current limitations:
 
