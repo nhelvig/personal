@@ -16,6 +16,13 @@ There are a few main features as of now.
 ### Transactions ###
 
 >The goal of the [transactions page] is to keep track of investment value over time. Currently, it allows users to input a stock transaction to see how that investment is doing now. It accounts for the money you have previously made in order to get an accurate measure of how much money you have gained (YAY) or lost (boo...). Users can also input their transactions into a csv file to be uploaded and automatically turned into a series of transactions. Eventually it will graph these values to show how successful you have been over time.
+>The CSV input needs to be in the format 'symbol,action,quantity,price,date(yyyy-mm-dd)' like:
+
+     GE,buy,10,21.5,2012-10-25
+
+### Pictures ###
+
+> The [pictures page] is a spot to show pictures I have taken from the different places I have been.
 
 >Current limitations:
 
@@ -28,3 +35,4 @@ There are a few main features as of now.
 [homepage]: https://nicolashelvig.herokuapp.com/
 [review page]: https://nicolashelvig.herokuapp.com/review
 [transactions page]: https://nicolashelvig.herokuapp.com/transactions
+[pictures page]: https://nicolashelvig.herokuapp.com/pics
