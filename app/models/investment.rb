@@ -5,9 +5,7 @@ class Investment < ActiveRecord::Base
   @@available_cash = 0
 
   def self.build(transaction)
-    print "New investment \n"
     if transaction.action == 'buy'
-      print "Buying " + transaction.symbol + " with quantity: " + transaction.quantity.truncate(2).to_s('F') + " at price: $" + transaction.price.truncate(2).to_s('F') + "\n"
       total_value = transaction.price * transaction.quantity
       @@total_invested += total_value
     else
@@ -43,7 +41,7 @@ class Investment < ActiveRecord::Base
     update_attribute(:quantity, total_quantity)
     update_attribute(:total_value, investment_value + total_value)
     updateTotalInvested(investment_value)
-    updateAvailableCash(investment_value)
+    useAvailableCashForInvestment(investment_value)
   end
 
   def handleSell(investment_value, transaction)
@@ -56,7 +54,7 @@ class Investment < ActiveRecord::Base
     end
   end
 
-  def updateAvailableCash(investment_value)
+  def useAvailableCashForInvestment(investment_value)
     @@available_cash = @@available_cash - investment_value
     if @@available_cash < 0
       @@available_cash = 0
@@ -82,10 +80,7 @@ class Investment < ActiveRecord::Base
     begin
       currentPrice = StockQuote::Stock.quote(symbol).last_trade_price_only
       if currentPrice.class == Float
-        print "Getting current price for " + symbol + "\n"
         value = currentPrice * quantity
-        print "Price is: " + currentPrice.to_s + "\n"
-        print "Value is: " + value.to_s + "\n"
         if value == nil
           value = "N/A"
         end
@@ -97,7 +92,11 @@ class Investment < ActiveRecord::Base
     end
   end
 
-  def self.totalInvested
+  def self.setTotalInvested(amount)
+    @@total_invested = amount
+  end
+
+  def self.getTotalInvested
     begin
       @@total_invested.round(2)
     rescue
@@ -109,18 +108,16 @@ class Investment < ActiveRecord::Base
     sum = 0
     for investment in Investment.all
       if investment.value != nil
-        print "Symbol: " + investment.symbol + " value: " + investment.value.to_s + "\n"
         sum += investment.value
       end
 
     end
-    print "Available cash: " + @@available_cash.to_s + "\n"
     return (sum + @@available_cash).round(2)
   end
 
   def self.totalValuePercentage
-    if self.totalInvested > 0
-      return (((self.totalValue/self.totalInvested) - 1) * 100).round(2)
+    if self.getTotalInvested > 0
+      return (((self.totalValue/self.getTotalInvested) - 1) * 100).round(2)
     end
     return 0
   end
