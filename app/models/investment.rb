@@ -122,7 +122,11 @@ class Investment < ActiveRecord::Base
     return 0
   end
 
-  def self.availableCash
+  def self.setAvailableCash(amount)
+    @@available_cash = amount
+  end
+
+  def self.getAvailableCash
     @@available_cash.round(2)
   end
 

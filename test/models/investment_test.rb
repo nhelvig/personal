@@ -11,6 +11,7 @@ class InvestmentTest < ActiveSupport::TestCase
   def teardown
     Investment.destroy("GE")
     Investment.setTotalInvested(0)
+    Investment.setAvailableCash(0)
   end
 
   test "A new investment should have a symbol, quantity, total value, current price, and average cost" do
@@ -48,7 +49,13 @@ class InvestmentTest < ActiveSupport::TestCase
   end
 
   test "A single buy transaction should update the total invested" do
+    print "total before: "
+    print Investment.getTotalInvested.to_s
+    print "\n"
     @investment.addTransaction(@buyTransaction)
+    print "total after: "
+    print Investment.getTotalInvested.to_s
+    print "\n"
 
     assert_equal("150.0", Investment.getTotalInvested.to_s)
     end
