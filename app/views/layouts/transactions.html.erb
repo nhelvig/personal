@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nicolas Helvig</title>
+    <%= stylesheet_link_tag 'transactions', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
+  </head>
+  <body>
+
+  <%= yield %>
+
+  </body>
+</html>

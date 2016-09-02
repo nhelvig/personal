@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+
+	<!-- Bootstrap core CSS -->
+	<link href="assets/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link href="assets/bootstrap/dashboard.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<script type="text/javascript">
+	function confirm_reset() {
+	  return confirm('Are you sure you want to reset? This will delete the data from the database.');
+	}
+</script>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/">Home</a>
+			<a class="navbar-brand" href="/pics">Pictures</a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="/investmentTracker/new">Add Transaction</a></li>
+				<li><a href="/investmentTracker/reset" onclick="return confirm_reset()">Reset</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-12 col-md-13 main">
+			<h1 class="page-header">Investment Tracker</h1>
+
+			<div class="row placeholders">
+				<div class="col-xs-6 col-sm-3 placeholder">
+					<%= high_chart("pie_chart", @pieChart) %>
+				</div>
+				<div id="chart-2" class="col-xs-6 col-sm-9 placeholder">			
+				<%= high_chart("some_id", @lineChart) %>
+				</div>
+			</div>
+
+			<h2 class="sub-header">Current Investments</h2>
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Symbol</th>
+							<th>Quantity</th>
+							<th>Average Purchase Price</th>
+							<th>Current Price</th>
+							<th>Value</th>
+							<th>Percent change</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @investments.each do |investment| %>
+								<tr>
+									<td><%= investment.symbol %></td>
+									<td><%= investment.quantity %></td>
+									<td>$<%= investment.avg_cost %></td>
+									<td>$<%= investment.get_stock_price %></td>
+									<td>$<%= investment.value %></td>
+									<td><%= investment.percent_change %>%</td>
+								</tr>
+						<% end %>
+					</tbody>
+
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+<script src="assets/bootstrap.min.js"></script>
+</body>
+</html>

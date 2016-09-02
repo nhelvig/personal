@@ -1,0 +1,208 @@
+/* line 4, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+body {
+  background-color: #EFEFEF;
+  font-family: 'Poiret One', cursive;
+  text-align: center;
+}
+
+/* line 10, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+a {
+  color: #5BBBC5;
+}
+
+/* line 14, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+#home-slide {
+  background: url(/assets/rooster-7d7654593154861abfd4a86af032dcb6aa59213c52a7007ec2ec8bb557552d0b.jpg) 50% 0 no-repeat;
+  height: 600px;
+  padding: 200px 0 100px 0;
+  background-size: cover;
+}
+
+/* line 22, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+#work-slide, #about-me-slide, .split-slide, #contact-slide {
+  background: #8CCED5;
+}
+
+/* line 26, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+#work-slide, #about-me-slide {
+  height: 700px;
+}
+
+/* line 30, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+.split-slide {
+  width: 100%;
+}
+
+/* line 34, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+.split-slide-image {
+  width: 40%;
+}
+
+/* line 39, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+#contact-slide {
+  height: 800px;
+}
+
+/* line 43, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+#rooster-link, .intro-info {
+  color: white;
+}
+
+/* line 47, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+.content, .slide-content {
+  background: #FFF;
+}
+
+/* line 51, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+.content {
+  width: 80%;
+  margin: 0 10%;
+  padding: 150px 0;
+  height: 400px;
+}
+
+/* line 58, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+.slide-content {
+  width: 80%;
+  margin: 0 10%;
+  padding-top: 200px;
+}
+
+/* line 64, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+#header {
+  color: #000;
+  text-align: center;
+  padding-top: 15px;
+  width: 100%;
+  position: fixed;
+  background: #EAEAEA;
+  opacity: 0.7;
+}
+
+/* line 74, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+.top-nav-option {
+  display: inline-block;
+  padding: 25px;
+  padding-top: 5px;
+  font-size: 1.2em;
+}
+
+/* line 81, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+#about-me-header, .intro-info {
+  font-family: 'Poiret One', cursive;
+}
+
+/* line 85, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+.intro-info {
+  letter-spacing: 2px;
+  font-weight: normal;
+}
+
+/* line 90, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+#welcome-info {
+  padding-top: 115px;
+}
+
+/* line 94, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+#down-arrows:before {
+  content: url("down-arrows.png");
+}
+
+/* line 98, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+#learn-more {
+  height: 180px;
+}
+
+/* line 102, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+#learn-more > a > img {
+  margin-right: 9%;
+  float: right;
+}
+
+/* line 107, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+#main-question {
+  margin: 17% 3% 0 5%;
+  font-size: 1.7em;
+  color: white;
+  text-align: right;
+}
+
+/* line 114, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+.work-content {
+  font-size: 2em;
+  padding: 15px 70px;
+}
+
+/* line 119, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+.thoughtworks-link, .thoughtworks-link:visited {
+  color: #8CCED5;
+}
+
+/* line 123, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+.thoughtworks-link:hover {
+  color: #EF5BA1;
+}
+
+/* line 127, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+#travel-map {
+  border: lightgray 14px solid;
+  float: left;
+  margin-left: 10%;
+}
+
+/* line 133, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+#professional {
+  font-family: 'Monsieur La Doulaise', cursive;
+  font-size: 4em;
+}
+
+/* line 138, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+#photoslider {
+  width: 500px;
+  height: 400px;
+  margin-top: 20px;
+  border: #afccd3 18px solid;
+}
+
+/* line 145, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+#picture-show {
+  position: relative;
+  margin-left: 17%;
+}
+
+/* line 150, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+#about-me-header {
+  margin-top: -60px;
+  font-size: 2em;
+}
+
+/* line 155, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+#about-me-content {
+  padding: 30px 60px;
+  font-size: 1.5em;
+}
+
+/* line 160, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+#pic-left-arrow, #pic-right-arrow {
+  height: 50px !important;
+  width: 50px !important;
+  text-align: left;
+  padding-top: 235px;
+  cursor: pointer;
+}
+
+/* line 168, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+#pic-left-arrow {
+  float: left;
+}
+
+/* line 172, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+#pic-right-arrow {
+  float: right;
+  padding-right: 20%;
+}
+
+/* line 177, /Users/nhelvig/personal/app/assets/stylesheets/welcome.scss.erb */
+#contact-content, .intro-info {
+  font-size: 3em;
+}

@@ -1,0 +1,62 @@
+body {
+  overflow: hidden;
+}
+
+h1 {
+  text-align: center;
+}
+
+.graph {
+  margin: 0 25px;
+}
+
+.investment-stat {
+  margin: 0;
+  padding: 0 40px;
+  font-family: "Helvetica Neue";
+}
+
+#total-invested {
+  display: inline-block;
+  font-size: 2em;
+}
+
+#total-value {
+  display: inline-block;
+  font-size: 2em;
+}
+
+#percent-change {
+  padding-top: 20px;
+  display: block;
+  font-size: 1.5em;
+  color: green;
+}
+
+#investments {
+  float: right;
+  text-align: center;
+}
+
+#investments > td {
+  padding: 0 5px;
+}
+
+#add-actions {
+  position: absolute;
+  bottom: 0;
+}
+
+.investment-totals-section {
+  margin: 25px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+#pie-chart {
+  display: inline-block;
+}
+
+#line-chart {
+  display: inline-block;
+}

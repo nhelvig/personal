@@ -7,6 +7,9 @@ Rails.application.config.assets.precompile += %w( picture-slideshow.js )
 Rails.application.config.assets.precompile += %w( travel-map.js )
 Rails.application.config.assets.precompile += %w( pics.css )
 Rails.application.config.assets.precompile += %w( review.css )
+Rails.application.config.assets.precompile += %w( transactions.css )
+Rails.application.config.assets.precompile += %w( welcome.css )
+Rails.application.config.assets.precompile += %w( articles.css )
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path

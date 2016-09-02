@@ -1,12 +1,19 @@
 class TransactionsController < ApplicationController
 
+  logger = Logger.new(STDOUT)
+
+  require 'date'
   def index
-    print "Transactions Controller - index"
-    @transactions = Transaction.all
+    logger.info("Transactions Controller - index")
+    # @transactions = Transaction.all
     @investments = Investment.all
+    @holdings = Holdings.all
+    @totals = Totals.all
+    @totalToday = Totals.order('totals.date DESC').first
   end
 
   def show
+    puts "Transactions Controller - show"
     @transaction = Transaction.find(params[:id])
     begin
       @investment = Investment.find(@transaction.symbol)
@@ -24,15 +31,16 @@ class TransactionsController < ApplicationController
   def create
     @transaction = Transaction.new(transaction_params)
     if @transaction.save
-
       if Investment.exists?(@transaction.symbol)
         @investment = Investment.find(@transaction.symbol)
-        @investment.addTransaction(@transaction)
+        Holdings.updateQuantityOfStock(@transaction)
       else
         @investment = Investment.build(@transaction)
         if @investment.save
-          print "good"
-          # Investment.symbols.add(@transaction.symbol)
+          Holdings.populateHoldings(@transaction)
+          Holdings.updateTotals
+        else
+          raise "NEW INVESTMENT FAILED"
         end
       end
       redirect_to transactions_path
@@ -43,7 +51,6 @@ class TransactionsController < ApplicationController
 
   def update
     @transaction = Transaction.find(params[:id])
-
     if @transaction.update(transaction_params)
       redirect_to @transaction
     else
@@ -60,7 +67,7 @@ class TransactionsController < ApplicationController
 
   def import
     Transaction.import(params[:file])
-    redirect_to transactions_url, notice: "Transactions imported."
+    redirect_to investmentTracker_url, notice: "Transactions imported."
   end
 
   private

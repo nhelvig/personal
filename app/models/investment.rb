@@ -1,15 +1,13 @@
 class Investment < ActiveRecord::Base
   self.primary_key = "symbol"
-  @@symbols = []
-  @@total_invested = 0
-  @@available_cash = 0
+  # @@symbols = []
+  # @@available_cash = 0
 
   def self.build(transaction)
     if transaction.action == 'buy'
       total_value = transaction.price * transaction.quantity
-      @@total_invested += total_value
     else
-      print "Trying to sell " + transaction.symbol + " with quantity: " + transaction.quantity.truncate(2).to_s('F') + " at price: $" + transaction.price.truncate(2).to_s('F') + "\n"
+      puts "Trying to sell " + transaction.symbol + " with quantity: " + transaction.quantity.truncate(2).to_s('F') + " at price: $" + transaction.price.truncate(2).to_s('F') + "\n"
       raise 'Cannot sell something that is not owned'
     end
     investment = Investment.new
@@ -39,31 +37,18 @@ class Investment < ActiveRecord::Base
     new_avg_cost = (avg_cost * (quantity / total_quantity) + transaction.price * (transaction.quantity / total_quantity)).round(2)
     update_attribute(:avg_cost, new_avg_cost)
     update_attribute(:quantity, total_quantity)
-    update_attribute(:total_value, investment_value + total_value)
-    updateTotalInvested(investment_value)
-    useAvailableCashForInvestment(investment_value)
+    update_attribute(:total_value, value)
+    # updateTotalInvested(investment_value)
+    # useAvailableCashForInvestment(investment_value)
+    # puts "Available cash after buy: " + @@available_cash.to_s
   end
 
   def handleSell(investment_value, transaction)
     total_quantity = quantity - transaction.quantity
     update_attribute(:quantity, total_quantity)
-    update_attribute(:total_value, total_value - investment_value)
-    @@available_cash += investment_value
+    update_attribute(:total_value, value)
     if quantity <= 0
       self.delete
-    end
-  end
-
-  def useAvailableCashForInvestment(investment_value)
-    @@available_cash = @@available_cash - investment_value
-    if @@available_cash < 0
-      @@available_cash = 0
-    end
-  end
-
-  def updateTotalInvested(investment_value)
-    if investment_value - @@available_cash > 0
-      @@total_invested = @@total_invested + investment_value - @@available_cash
     end
   end
 
@@ -84,11 +69,13 @@ class Investment < ActiveRecord::Base
         if value == nil
           value = "N/A"
         end
-        value.round(2)
+        newValue = value.round(2)
+        update_attribute(:total_value, value)
+        newValue
       end
     rescue
       #not connected to internet
-      25
+      total_value
     end
   end
 
@@ -106,11 +93,11 @@ class Investment < ActiveRecord::Base
 
   def self.totalValue
     sum = 0
+    Investment.destroy_all("quantity <= 0")
     for investment in Investment.all
       if investment.value != nil
         sum += investment.value
       end
-
     end
     return (sum + @@available_cash).round(2)
   end
@@ -130,4 +117,8 @@ class Investment < ActiveRecord::Base
     @@available_cash.round(2)
   end
 
+  def percent_change
+    puts "Symbol - " + symbol.to_s
+    (((get_stock_price/avg_cost) - 1) * 100).round(2)
+  end
 end

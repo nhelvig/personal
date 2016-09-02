@@ -1,0 +1,20 @@
+current directory: /Users/nhelvig/personal/path/ruby/2.0.0/gems/byebug-8.2.1/ext/byebug
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/bin/ruby -r ./siteconf20160812-16876-qnkz5q.rb extconf.rb
+creating Makefile
+
+current directory: /Users/nhelvig/personal/path/ruby/2.0.0/gems/byebug-8.2.1/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /Users/nhelvig/personal/path/ruby/2.0.0/gems/byebug-8.2.1/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.bundle
+
+current directory: /Users/nhelvig/personal/path/ruby/2.0.0/gems/byebug-8.2.1/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.bundle ./.gem.20160812-16876-712nkg/byebug
+installing default byebug libraries

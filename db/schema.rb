@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160405025442) do
+ActiveRecord::Schema.define(version: 20160810004201) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 20160405025442) do
     t.text     "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "holdings", force: :cascade do |t|
+    t.date    "date",          null: false
+    t.string  "symbol",        null: false
+    t.decimal "quantity",      null: false
+    t.decimal "closing_price", null: false
   end
 
   create_table "investments", force: :cascade do |t|
@@ -33,10 +40,13 @@ ActiveRecord::Schema.define(version: 20160405025442) do
     t.decimal  "quantity"
   end
 
-  create_table "stocks", force: :cascade do |t|
-    t.string   "symbol"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "totals", force: :cascade do |t|
+    t.date    "date",              null: false
+    t.decimal "total_value",       null: false
+    t.decimal "total_invested"
+    t.decimal "available_cash"
+    t.decimal "total_dividend"
+    t.decimal "percentage_change"
   end
 
   create_table "transactions", force: :cascade do |t|

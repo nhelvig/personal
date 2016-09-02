@@ -1,0 +1,73 @@
+
+<div id="home-slide">
+  <div id="welcome-info">
+    <div class="intro-info" id="main-name">Hi, I'm Nick.</div>
+    <div class="intro-info">I was born in the <a id="rooster-link" href="http://www.chinahighlights.com/travelguide/chinese-zodiac/rooster.htm">year of the rooster</a>.</div>
+  </div>
+
+  <div id="learn-more">
+    <a href="#about-me-slide">
+    <div id="main-question">Want to know more?</div>
+    <%= image_tag 'down-arrows.png'%>
+    </a>
+  </div>
+</div>
+
+<div id="about-me-slide">
+  <div class="content">
+    <!--<div id="mapdiv" style="width: 300px; height: 250px;"></div>-->
+    <div id="about-me-header">This is me and my <a href="http://www.sheknows.com/baby-names/name/nicolas">name</a> appearing in nature.</div>
+    <div id="picture-show">
+      <img id="pic-left-arrow" src="assets/left-arrow.jpg" onClick="forward();return false"/>
+        <script>
+          if (linkornot==1)
+            document.write('<a href="javascript:transport()">')
+          document.write('<img src="'+photos[0]+'" id="photoslider" name="photoslider" style="filter:revealTrans(duration=2,transition=23)" border=0>')
+          if (linkornot==1)
+            document.write('</a>')
+        </script>
+      <img id="pic-right-arrow" src="assets/right-arrow.jpg" onClick="backward();return false"/>
+    </div>
+
+    <!--<img id="travel-map" src="http://www.travbuddy.com/maps/6912376"></img>-->
+    <div id="about-me-content">I'm just a person who likes to learn about the world around me. I am often on the road because I believe that <a href="https://youtu.be/-LHPRbEAxy4?t=1m15s">"the more you see the less you know"</a>. I have realized how fortunate I am to lead a life with access to so many opportunites. I hope that during my lifetime I am able to open such doors for others. I like to travel and take <a href="/pics">pictures</a>.</div>
+  </div>
+</div>
+
+<div class="split-slide">
+  <div class="slide-content">
+    <img class="split-slide-image" src="assets/hr-line.png"/>
+  </div>
+</div>
+
+<div id="work-slide">
+  <div class="content">
+    <p id="professional">Professional</p>
+    <p class="work-content">I work at <a href="http://www.thoughtworks.com" class="thoughtworks-link" %>ThoughtWorks</a> as a <span title="mercenary?">software developer/consultant</span>. It combines my social values with my desire to learn really well, and I am excited to see where it takes me as I start my career.</p>
+
+    <p class="work-content">In the past I have worked professionally as a pedicab driver, a call center agent, an inventory liaison, a psych study participant, and also on Jessica Simpson's website. </p>
+  </div>
+</div>
+
+<div class="split-slide">
+  <div class="slide-content">
+    <img class="split-slide-image" src="assets/hr-line.png"/>
+  </div>
+</div>
+
+<div id="contact-slide">
+  <div class="content">
+    <div id="contact-content">
+      Need to contact me? My email is <a href="mailto:nick.helvig@gmail.com">nick.helvig@gmail.com</a>
+    </div>
+  </div>
+</div>
+
+<div id="footer">
+
+</div>
+
+
+
+
+

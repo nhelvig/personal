@@ -1,84 +1,348 @@
-<div id="header" xmlns="http://www.w3.org/1999/html">
-  <nav id="menu-options">
-    <ul>
-      <li class="top-nav-option"><a href="#home-slide">Home</a></li>
-      <li class="top-nav-option"><a href="#about-me-slide">About Me</a></li>
-      <li class="top-nav-option"><a href="#work-slide">Work</a></li>
-      <li class="top-nav-option"><a href="#contact-slide">Contact</a></li>
-      <!--<li class="top-nav-option"><%= link_to 'Blog', controller: 'articles' %></li>-->
-      <!--<li class="top-nav-option"><%= link_to 'Stocks', controller: 'transactions' %></li>-->
-    </ul>
-  </nav>
-</div>
-<div id="home-slide">
-  <div id="welcome-info">
-    <div class="intro-info" id="main-name">Hi, I'm Nick.</div>
-    <div class="intro-info">I was born in the <a id="rooster-link" href="http://www.chinahighlights.com/travelguide/chinese-zodiac/rooster.htm">year of the rooster</a>.</div>
-  </div>
 
-  <div id="learn-more">
-    <a href="#about-me-slide">
-    <div id="main-question">Want to know more?</div>
-    <%= image_tag 'down-arrows.png'%>
-    </a>
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
 
-<div id="about-me-slide">
-  <div class="content">
-    <!--<div id="mapdiv" style="width: 300px; height: 250px;"></div>-->
-    <div id="about-me-header">This is me and my <a href="http://www.sheknows.com/baby-names/name/nicolas">name</a> appearing in nature.</div>
-    <div id="picture-show">
-      <img id="pic-left-arrow" src="assets/left-arrow.jpg" onClick="forward();return false"/>
-        <script>
-          if (linkornot==1)
-            document.write('<a href="javascript:transport()">')
-          document.write('<img src="'+photos[0]+'" id="photoslider" name="photoslider" style="filter:revealTrans(duration=2,transition=23)" border=0>')
-          if (linkornot==1)
-            document.write('</a>')
-        </script>
-      <img id="pic-right-arrow" src="assets/right-arrow.jpg" onClick="backward();return false"/>
-    </div>
+<head>
 
-    <!--<img id="travel-map" src="http://www.travbuddy.com/maps/6912376"></img>-->
-    <div id="about-me-content">I'm just a person who likes to learn about the world around me. I am often on the road because I believe that <a href="https://youtu.be/-LHPRbEAxy4?t=1m15s">"the more you see the less you know"</a>. I have realized how fortunate I am to lead a life with access to so many opportunites. I hope that during my lifetime I am able to open such doors for others. I like to travel and take <a href="/pics">pictures</a>.</div>
-  </div>
-</div>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<div class="split-slide">
-  <div class="slide-content">
-    <img class="split-slide-image" src="assets/hr-line.png"/>
-  </div>
-</div>
+    <title>Agency - Start Bootstrap Theme</title>
 
-<div id="work-slide">
-  <div class="content">
-    <p id="professional">Professional</p>
-    <p class="work-content">I work at <a href="http://www.thoughtworks.com" class="thoughtworks-link" %>ThoughtWorks</a> as a <span title="mercenary?">software developer/consultant</span>. It combines my social values with my desire to learn really well, and I am excited to see where it takes me as I start my career.</p>
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <p class="work-content">In the past I have worked professionally as a pedicab driver, a call center agent, an inventory liaison, a psych study participant, and also on Jessica Simpson's website. </p>
-  </div>
-</div>
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
-<div class="split-slide">
-  <div class="slide-content">
-    <img class="split-slide-image" src="assets/hr-line.png"/>
-  </div>
-</div>
+    <!-- Theme CSS -->
+    <link href="assets/newwelcome.css" rel="stylesheet">
 
-<div id="contact-slide">
-  <div class="content">
-    <div id="contact-content">
-      Need to contact me? My email is <a href="mailto:nick.helvig@gmail.com">nick.helvig@gmail.com</a>
-    </div>
-  </div>
-</div>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-<div id="footer">
+</head>
 
-</div>
+<body id="page-top" class="index">
 
+    <!-- Navigation -->
+    <!-- <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Home</a>
+                <a class="navbar-brand" href="/pics">Pictures</a>
+                <a class="navbar-brand" href="/investmentTracker">Investment Tracker</a>
+            </div>
+        </div>
+    </nav> -->
+    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Nicolas Helvig</a>
+            </div>
 
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about-me">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#more-me">More Me?</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#cool-stuff">Cool Stuff</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Hi, I'm Nick!</div>
+                <div class="intro-heading">It's Nice To Meet You</div>
+                <a href="#about-me" class="page-scroll btn btn-xl">Tell Me More</a>
+            </div>
+        </div>
+    </header>
 
+    <!-- About Section -->
+    <section id="about-me">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">About Me</h2>
+                    <h3 class="section-subheading text-muted">A Brief Timeline</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="timeline">
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="assets/nicks/babypic.png" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>March 14, 1993</h4>
+                                    <h4 class="subheading">Humble Beginnings</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">I was born a plump yet striking young lad to two wonderful parents, Dale and Christine. I spent most of my time not doing anything since I was a baby and didn't have the physical capacity to do much at all.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="assets/nicks/kiddopic.png" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>1993 - 2004</h4>
+                                    <h4 class="subheading">Out Of The Mouths Of Babes</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">What did I know? I was a small kiddo with a big curiosity.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="assets/nicks/middleschool.png" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>2004 - 2007</h4>
+                                    <h4 class="subheading">70s in the 2000s</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">This period saw a return to the days of boogie, if only in regards to my hairstyle. Prank calls were in vogue. </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="assets/nicks/highschool.png" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>2007 - 2011</h4>
+                                    <h4 class="subheading">The peak?</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">While my growing did indeed plataeu, the rest of my life was just beginning to sprout. Tustin High witnessed the evolution from a long haired acne-covered freshman kid to a slightly shorter haired and slightly less acne-covered lad 4 years later.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="assets/nicks/college.png" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>2011 - 2015</h4>
+                                    <h4 class="subheading">Bezerkley</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Hella finding myself happened in Berkeley, CA. I had laughed when people said I would become super liberal here. They were right.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image"> <!-- post college picture  -->
+                                <img class="img-circle img-responsive" src="assets/nicks/postcollege.png" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>2015 - now</h4>
+                                    <h4 class="subheading">Time To Be A (young) Professional</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Still trying, still failing, still learning!</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <h4>Who Knows
+                                    <br>What Will Be
+                                    <br>Next!</h4>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>    
 
+    <section id="more-me" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Me and my name appearing in nature.</h2>
+                    <h3 class="section-subheading text-muted">Three times.</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="name-picture">
+                        <img src="assets/nicks/nick1.jpg" class="img-circle" alt="">
+                        <h4>Near a rock</h4>
+                        <p class="text-muted">Bay Area, CA</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="name-picture">
+                        <img src="assets/nicks/nick2.jpg" class="img-circle" alt="">
+                        <h4>On a street</h4>
+                        <p class="text-muted">Paris, France</p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="name-picture">
+                        <img src="assets/nicks/nick3.jpg" class="img-circle" alt="">
+                        <h4>On a street pt. 2</h4>
+                        <p class="text-muted">Paris, France </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <p class="large text-muted">As is clearly seen, my name is common in nature (and in the United States - #33 most popular since 1916). If you run across this name, please take a picture and send it to me!</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section id="cool-stuff">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Cool Stuff</h2>
+                    <h3 class="section-subheading text-muted">At least to me</h3>
+                </div>
+            </div>
+            <aside class="clients">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <a href="/pics">
+                                Travel Pictures<img src="assets/frontpage/travelpic.png" class="img-responsive img-centered" alt="">
+                            </a>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <a href="/investmentTracker">
+                                Investment Tracker<img src="assets/frontpage/investmenttracker.png" class="img-responsive img-centered" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Contact Me</h2>
+                    <h3 class="section-subheading text-muted">For anything and everything.</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <form name="sentMessage" id="contactForm" novalidate><%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" class="form-control" placeholder="Your Phone *" id="phone" required data-validation-required-message="Please enter your phone number.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <textarea class="form-control" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-lg-12 text-center">
+                                <div id="success"></div>
+                                <button type="submit" class="btn btn-xl">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Possibly Copyright? &copy; Nicolas Helvig 2016</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="assets/jqBootstrapValidation.js"></script>
+    <script src="assets/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="assets/welcome.min.js"></script>
+
+</body>
+
+</html>

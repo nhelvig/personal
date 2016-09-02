@@ -1,0 +1,72 @@
+/** {*/
+  /*margin:0;*/
+/*}*/
+
+/*body {*/
+  /*background: white;*/
+/*}*/
+
+
+
+
+.investment-totals-section {
+  border: 1px solid black;
+  display: inline-block;
+}
+
+#investment-graph-container {
+  display: inline-block;
+  width: 50%;
+  height: 100px;
+}
+
+#chart-0 {
+  height: 200px;
+}
+
+/*table {*/
+  /*border-collapse: collapse;*/
+/*}*/
+
+/*table, th, td {*/
+  /*border: 1px solid black;*/
+/*}*/
+
+/*.top-nav-option {*/
+  /*display: inline-block;*/
+  /*padding: 25px;*/
+  /*padding-top: 5px;*/
+  /*font-size: 1.2em;*/
+/*}*/
+
+
+
+/*.investment-stat {*/
+  /*font-size: 1.5em;*/
+  /*text-align: center;*/
+/*}*/
+
+/*a {*/
+  /*color: #5BBBC5;*/
+/*}*/
+
+/*.transaction-table {*/
+  /*width: 675px;*/
+  /*margin: 100px;*/
+/*}*/
+
+/*#new-action {*/
+  /*margin-top: 50px;*/
+  /*font-size: 30px;*/
+/*}*/
+
+/*#transaction-form-outer {*/
+  /*margin: 20% 40%;*/
+  /*border: 2px solid red;*/
+  /*background-color: lightblue;*/
+  /*border-radius: 15px;*/
+/*}*/
+
+/*#transaction-form-inner {*/
+  /*text-align: left;*/
+/*}*/
