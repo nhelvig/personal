@@ -44,11 +44,9 @@ gem 'autoprefixer-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'market_beat'
-gem 'quandl'
 
 gem 'stock_quote', '~> 1.2', '>= 1.2.3'
 
-gem 'chartkick'
 gem 'groupdate', '~> 2.1.1'
 gem 'active_median', '~> 0.1.0'
 
