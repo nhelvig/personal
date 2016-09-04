@@ -10,6 +10,8 @@ Rails.application.config.assets.precompile += %w( review.css )
 Rails.application.config.assets.precompile += %w( transactions.css )
 Rails.application.config.assets.precompile += %w( welcome.css )
 Rails.application.config.assets.precompile += %w( articles.css )
+Rails.application.config.assets.precompile += %w( articles.css )
+Rails.application.config.assets.precompile += %w( highcharts.js )
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
