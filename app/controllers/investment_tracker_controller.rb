@@ -106,7 +106,7 @@ class InvestmentTrackerController < ApplicationController
     Totals.delete_all
     Transaction.delete_all
     Holdings.delete_all
-    render 'test'
+    render 'new'
   end
 
   private
