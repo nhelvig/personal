@@ -24,7 +24,7 @@ class InvestmentTrackerController < ApplicationController
 		@investments.map { |investment|
 			data = {
                 name: investment.symbol,
-                y: investment.value
+                y: investment.value.to_f
             }
 			investmentData.push(data)
 		}
