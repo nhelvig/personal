@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160810004201) do
+ActiveRecord::Schema.define(version: 20160904194439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20160810004201) do
     t.decimal "quantity",      null: false
     t.decimal "closing_price", null: false
   end
+
+  add_index "holdings", ["date"], name: "index_holdings_on_date", using: :btree
 
   create_table "investments", force: :cascade do |t|
     t.datetime "created_at",    null: false
@@ -49,6 +51,8 @@ ActiveRecord::Schema.define(version: 20160810004201) do
     t.decimal "percentage_change"
   end
 
+  add_index "totals", ["date"], name: "index_totals_on_date", using: :btree
+
   create_table "transactions", force: :cascade do |t|
     t.integer  "stock_id"
     t.decimal  "price"
@@ -60,5 +64,7 @@ ActiveRecord::Schema.define(version: 20160810004201) do
     t.string   "symbol"
     t.date     "date"
   end
+
+  add_index "transactions", ["date"], name: "index_transactions_on_date", using: :btree
 
 end

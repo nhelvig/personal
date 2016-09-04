@@ -1,7 +1,6 @@
 class Investment < ActiveRecord::Base
   self.primary_key = "symbol"
-  # @@symbols = []
-  # @@available_cash = 0
+  @@currentPrices = Hash.new
 
   def self.build(transaction)
     if transaction.action == 'buy'
@@ -38,9 +37,6 @@ class Investment < ActiveRecord::Base
     update_attribute(:avg_cost, new_avg_cost)
     update_attribute(:quantity, total_quantity)
     update_attribute(:total_value, value)
-    # updateTotalInvested(investment_value)
-    # useAvailableCashForInvestment(investment_value)
-    # puts "Available cash after buy: " + @@available_cash.to_s
   end
 
   def handleSell(investment_value, transaction)
@@ -53,17 +49,23 @@ class Investment < ActiveRecord::Base
   end
 
   def get_stock_price
-    begin
-      StockQuote::Stock.quote(symbol).last_trade_price_only
-    rescue
-      #not connected to internet
-      10
+    checkDateForCurrentPrices
+    if @@currentPrices.key?(symbol)
+      return @@currentPrices[symbol]
+    else
+      begin
+        price = StockQuote::Stock.quote(symbol).last_trade_price_only
+      rescue
+        price = 10
+      end
+      @@currentPrices[symbol] = price
     end
+    
   end
 
   def value
     begin
-      currentPrice = StockQuote::Stock.quote(symbol).last_trade_price_only
+      currentPrice = get_stock_price
       if currentPrice.class == Float
         value = currentPrice * quantity
         if value == nil
@@ -120,5 +122,17 @@ class Investment < ActiveRecord::Base
   def percent_change
     puts "Symbol - " + symbol.to_s
     (((get_stock_price/avg_cost) - 1) * 100).round(2)
+  end
+
+  def checkDateForCurrentPrices
+    if @@currentPrices.key?("date")
+      if @@currentPrices["date"] != Date.today
+        @@currentPrices = Hash.new
+        @@currentPrices["date"] = Date.today
+      end
+    else
+      @@currentPrices = Hash.new
+      @@currentPrices["date"] = Date.today
+    end
   end
 end
