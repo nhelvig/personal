@@ -31,7 +31,7 @@ class WelcomeController < ApplicationController
 	  body     message + "\n The phone number to reach this person is: " + phone
 	end
 	puts "IT EMAILED!"
-	render status: :ok
+	render :json => { :success => "success", :status_code => "200" }
   end
 
 end
