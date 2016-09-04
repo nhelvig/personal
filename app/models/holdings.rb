@@ -68,51 +68,55 @@ class Holdings < ActiveRecord::Base
     availableCash = 0
     totalInvested = 0
     totalDividend = 0
-    while date <= Date.today
-      totalValue = BigDecimal.new("0")
-      Holdings.where("date = :date", date: date).find_each do |holding|
-        totalValue = totalValue + (holding.closing_price * holding.quantity)
-      end
-      Transaction.where("date = :date", date: date).find_each do |transaction|
-        transactionValue = transaction.price * transaction.quantity
-        if transaction.action == 'buy'
-          if transactionIsDividend(transaction) && !specialCaseForARR(transaction)
-              totalDividend = totalDividend + transactionValue
+    if date.present?
+      while date <= Date.today
+        totalValue = BigDecimal.new("0")
+        Holdings.where("date = :date", date: date).find_each do |holding|
+          totalValue = totalValue + (holding.closing_price * holding.quantity)
+        end
+        Transaction.where("date = :date", date: date).find_each do |transaction|
+          transactionValue = transaction.price * transaction.quantity
+          if transaction.action == 'buy'
+            if transactionIsDividend(transaction) && !specialCaseForARR(transaction)
+                totalDividend = totalDividend + transactionValue
+            else
+              availableCash, totalInvested = updateAvailableCashAndTotalInvested(availableCash, totalInvested, transactionValue)
+            end
           else
-            availableCash, totalInvested = updateAvailableCashAndTotalInvested(availableCash, totalInvested, transactionValue)
+            availableCash = availableCash + transactionValue
           end
-        else
-          availableCash = availableCash + transactionValue
+        end
+        puts "Total value at end: " + totalValue.to_s
+        if Totals.where(:date => date).exists?
+          puts "Total for " + date.to_s + " already exists. Total value is now: " + totalValue.to_s
+          row = Totals.where("date = :date", date: date).first
+          puts "The row is: " + row.to_s
+          row.total_value = totalValue + availableCash
+          row.total_invested = totalInvested
+          row.available_cash = availableCash
+          row.total_dividend = totalDividend
+          row.percentage_change = getPercentageChange(totalInvested, totalValue + availableCash)
+          if row.save
+            puts "Total value for " + date.to_s + " updated to: " + totalValue.to_s
+            puts "Updating date in the middle."
+            date = date.next_day
+          else
+            puts "Error saving new total value for " + date.to_s
+          end
+        else if totalValue.nonzero?
+          puts "Making new total for " + date.to_s + " with value: " + totalValue.to_s
+          percentage_change = Holdings.getPercentageChange(totalInvested, totalValue + availableCash)
+          total = Totals.new(:date => date, :total_value => totalValue + availableCash, :total_invested => totalInvested, :available_cash => availableCash, :total_dividend => totalDividend, :percentage_change => percentage_change)
+          if total.save
+            puts "New total saved."
+          end
+        end
+        puts "Updating date at the end because totalValue = " + totalValue.to_s
+        date = date.next_day
         end
       end
-      puts "Total value at end: " + totalValue.to_s
-      if Totals.where(:date => date).exists?
-        puts "Total for " + date.to_s + " already exists. Total value is now: " + totalValue.to_s
-        row = Totals.where("date = :date", date: date).first
-        puts "The row is: " + row.to_s
-        row.total_value = totalValue + availableCash
-        row.total_invested = totalInvested
-        row.available_cash = availableCash
-        row.total_dividend = totalDividend
-        row.percentage_change = getPercentageChange(totalInvested, totalValue + availableCash)
-        if row.save
-          puts "Total value for " + date.to_s + " updated to: " + totalValue.to_s
-          puts "Updating date in the middle."
-          date = date.next_day
-        else
-          puts "Error saving new total value for " + date.to_s
-        end
-      else if totalValue.nonzero?
-        puts "Making new total for " + date.to_s + " with value: " + totalValue.to_s
-        percentage_change = Holdings.getPercentageChange(totalInvested, totalValue + availableCash)
-        total = Totals.new(:date => date, :total_value => totalValue + availableCash, :total_invested => totalInvested, :available_cash => availableCash, :total_dividend => totalDividend, :percentage_change => percentage_change)
-        if total.save
-          puts "New total saved."
-        end
-      end
-      puts "Updating date at the end because totalValue = " + totalValue.to_s
-      date = date.next_day
-      end
+    else
+      puts "No holdings to compare with."
     end
   end
 
