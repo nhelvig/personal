@@ -31,6 +31,7 @@ class WelcomeController < ApplicationController
 	  body     message + "\n The phone number to reach this person is: " + phone
 	end
 	puts "IT EMAILED!"
+	render: :ok
   end
 
 end
