@@ -31,19 +31,23 @@ class Holdings < ActiveRecord::Base
   def self.updateAllHoldings
     puts "Updating all holdings"
     mostRecentHolding = Holdings.select("date").order("date DESC").first
-    Holdings.where("date = :date", date: mostRecentHolding.date).find_each do |holding|
-      quotes = MarketBeat.quotes(holding.symbol, holding.date)
-      quotes.reverse_each {|quote|
-          if !Holdings.exists?(:symbol => holding.symbol, :date => quote[:date])
-            puts "Creating new holding..."
-            @holding = Holdings.new(:date => quote[:date], :symbol => holding.symbol, :quantity => holding.quantity, :closing_price => quote[:close])
-            if @holding.save
-              puts "New holding created: " + @holding.to_s
+    if mostRecentHolding.present?
+      Holdings.where("date = :date", date: mostRecentHolding.date).find_each do |holding|
+        quotes = MarketBeat.quotes(holding.symbol, holding.date)
+        quotes.reverse_each {|quote|
+            if !Holdings.exists?(:symbol => holding.symbol, :date => quote[:date])
+              puts "Creating new holding..."
+              @holding = Holdings.new(:date => quote[:date], :symbol => holding.symbol, :quantity => holding.quantity, :closing_price => quote[:close])
+              if @holding.save
+                puts "New holding created: " + @holding.to_s
+              end
             end
-          end
-      }
+        }
+      end
+      puts "All holdings updated."
+    else
+      puts "No holdings to update."
     end
-    puts "All holdings updated."
   end
 
 
