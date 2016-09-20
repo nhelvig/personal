@@ -2,8 +2,6 @@ class InvestmentTrackerController < ApplicationController
 	def index
 		puts "Investment Tracker Controller - index"
 		@investments = Investment.order("total_value DESC")
-		Holdings.updateAllHoldings
-		Holdings.updateTotals
 		@aggregated_totals = Totals.
 		  where("total_value > 0").
 		  order("date ASC").
