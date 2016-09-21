@@ -1,9 +1,10 @@
-<style>
-.new-investment-div {
-	width: 50%;
-	margin: 25% 15% 25% 0;
-}
-</style>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="../assets/new.css.erb" rel="stylesheet">
+    
+  </head>
+  <body>
 
 <script>
 	$(document).on("focus", "[data-behaviour~='datepicker']", function(e) {
@@ -15,7 +16,7 @@
 	});
 </script>
 
-<h1>New Transaction</h1>
+<h1 id="transaction-title">New Transaction</h1>
 <form action="/investmentTracker" method="POST" class="new-investment-div"><%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 	<div class="panel panel-default" >
 		<div class="panel-heading">
@@ -65,4 +66,9 @@
         <label class="btn btn-default btn-submit">
         	Submit <input type="submit" name="commit" value="Import CSV" style="display: none;"/>
         </label>
-</form></div>
+</form>
+</div>
+</body>
+
+
+

@@ -1,0 +1,15 @@
+.new-investment-div {
+	width: 50%;
+	margin: 10% 25% 5% 25%;
+	-ms-flex-line-pack: center;
+	    align-content: center;
+}
+
+#transaction-title {
+	text-align: center;
+}
+
+#import-csv {
+	margin-left: 45%;
+}
+
